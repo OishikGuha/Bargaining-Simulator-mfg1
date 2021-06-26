@@ -19,7 +19,7 @@ public class Item : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {   
         if(Vector3.Distance(player.position, transform.position) < minDistance)
         {
             gotPlayer = true;
