@@ -6,9 +6,9 @@ public class Player : MonoBehaviour
 {
 
     public float speed = 10f;
+    public List<GameObject> items;
 
     Rigidbody rb;
-
     float horizontal;
     float vertical;
 
@@ -23,12 +23,15 @@ public class Player : MonoBehaviour
     {
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
-
-    
     }
 
     private void FixedUpdate() 
     {
         rb.velocity = new Vector3(horizontal * speed, 0f, vertical * speed);    
+    }
+
+    public void Equip(GameObject item)
+    {
+        items.Add(item);
     }
 }
