@@ -8,6 +8,8 @@ public class Item : MonoBehaviour
     public float minDistance;
     public float animationSpeed;
 
+    public float cost;
+
     Transform player;
     bool gotPlayer;
 
