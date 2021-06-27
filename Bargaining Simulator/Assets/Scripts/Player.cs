@@ -6,7 +6,9 @@ public class Player : MonoBehaviour
 {
 
     public float speed = 10f;
-    public List<GameObject> items;
+    public List<Item> items;
+    public KeyCode jumpKey;
+    public float jumpForce;
 
     Rigidbody rb;
     float horizontal;
@@ -23,15 +25,20 @@ public class Player : MonoBehaviour
     {
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
+
+        if(Input.GetKeyDown(jumpKey))
+        {
+            rb.AddForce(new Vector3(0f, Time.deltaTime * jumpForce, 0f));
+        }
     }
 
     private void FixedUpdate() 
     {
-        rb.velocity = new Vector3(horizontal * speed, 0f, vertical * speed);    
+        rb.AddForce(new Vector3(horizontal, 0f, vertical).normalized * speed);
     }
 
     public void Equip(GameObject item)
     {
-        items.Add(item);
+        items.Add(item.GetComponent<Item>());
     }
 }
