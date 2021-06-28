@@ -29,11 +29,11 @@ public class ShelfScript : MonoBehaviour
     
     public void GenerateItems()
     {
-        items.RemoveAll(delegate(Item item){return true;});
+        items.Clear();
         for (int i = 0; i < itemSpawnPoints.Count; i++)
         {
             GameObject chosenItem = itemsToChooseFrom[Random.Range(0, itemsToChooseFrom.Count)];
-            items.Add(new Item(i.ToString(), chosenItem.GetComponent<ItemObject>().cost, chosenItem));
+            items.Add(new Item(i.ToString(), chosenItem.GetComponent<ItemObject>().item.cost, chosenItem));
             
             GameObject instObj = Instantiate(items[i].itemObj, itemSpawnPoints[i].transform.position, Quaternion.identity, transform);
             instObj.transform.localScale = Vector3.one * 0.004444444f;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class Item
+public struct Item
 {
     public string name;
     public float cost;
