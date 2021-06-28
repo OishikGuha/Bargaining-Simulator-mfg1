@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public List<Item> items;
     public KeyCode jumpKey;
     public float jumpForce;
+    public float rotationSenstivity;
 
     Rigidbody rb;
     float horizontal;
@@ -23,9 +24,12 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        horizontal = Input.GetAxis("Horizontal");
+        // horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
+        
+        LookAtMouse();
 
+        // jumping
         if(Input.GetKeyDown(jumpKey))
         {
             rb.AddForce(new Vector3(0f, Time.deltaTime * jumpForce, 0f));
@@ -34,11 +38,26 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate() 
     {
-        rb.AddForce(new Vector3(horizontal, 0f, vertical).normalized * speed);
+        // rb.angularVelocity = Vector3.up * horizontal * rotationSenstivity;
+
+        rb.AddRelativeForce(new Vector3(horizontal, 0f, vertical) * speed);
     }
 
     public void Equip(GameObject item)
     {
         items.Add(item.GetComponent<Item>());
+    }
+
+    public void LookAtMouse()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Plane plane = new Plane(Vector3.up, Vector3.zero);
+        float rayLength;
+
+        if(plane.Raycast(ray, out rayLength))
+        {
+            Vector3 pointToLook = ray.GetPoint(rayLength);
+            transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
+        }
     }
 }
