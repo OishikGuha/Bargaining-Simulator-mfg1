@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
 {
 
     public float speed = 10f;
-    public List<ItemObject> items;
+    public List<Item> items;
     public KeyCode jumpKey;
     public float jumpForce;
 
@@ -44,7 +44,9 @@ public class Player : MonoBehaviour
 
     public void Equip(GameObject item)
     {
-        items.Add(item.GetComponent<ItemObject>());
+        items.Add(item.GetComponent<ItemObject>().item);
+        
+        // Put in cart logic
     }
 
     public void LookAtMouse()

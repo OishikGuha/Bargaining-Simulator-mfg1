@@ -8,7 +8,7 @@ public class ItemObject : MonoBehaviour
     public float minDistance;
     public float animationSpeed;
 
-    public float cost;
+    public Item item;
 
     Transform player;
     bool gotPlayer;
@@ -49,6 +49,9 @@ public class ItemObject : MonoBehaviour
     public void Equip(GameObject player)
     {
         player.GetComponent<Player>().Equip(gameObject);
+        
+        // You probably might still want to keep the object
+        // around to put in the cart and to show at checkout
         Destroy(gameObject);
     }
 }
