@@ -9,6 +9,10 @@ public class Player : MonoBehaviour
     public List<Item> items;
     public KeyCode jumpKey;
     public float jumpForce;
+    [Space]
+    [Tooltip("must be particles")]public ParticleSystem playerTrail;
+    public bool isMoving;
+    public float currentSpeed;
 
     Rigidbody rb;
     float horizontal;
@@ -33,6 +37,21 @@ public class Player : MonoBehaviour
         {
             rb.AddForce(new Vector3(0f, Time.deltaTime * jumpForce, 0f));
         }
+
+        // setting the speed
+        currentSpeed = rb.velocity.magnitude;
+
+        // checks if the player is moving
+        if(currentSpeed > 1f)
+        {
+            isMoving = true;
+        }
+        else
+        {
+            isMoving = false;
+        }
+
+        UseTrail();
     }
 
     private void FixedUpdate() 
@@ -59,6 +78,18 @@ public class Player : MonoBehaviour
         {
             Vector3 pointToLook = ray.GetPoint(rayLength);
             transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
+        }
+    }
+
+    public void UseTrail()
+    {
+        if(isMoving && !playerTrail.isPlaying)
+        {
+            playerTrail.Play();
+        }
+        else if(!isMoving && playerTrail.isPlaying)
+        {
+            playerTrail.Stop();
         }
     }
 }
