@@ -9,7 +9,6 @@ public class Player : MonoBehaviour
     public List<ItemObject> items;
     public KeyCode jumpKey;
     public float jumpForce;
-    public float rotationSenstivity;
 
     Rigidbody rb;
     float horizontal;
