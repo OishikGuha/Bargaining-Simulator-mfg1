@@ -174,9 +174,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 3109301014662612116, guid: 3fc747ce7c0c0b84fa184e8ebf072a45, type: 3}
       propertyPath: m_Name
-      value: Shelf (14)
+      value: Shelf
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fc747ce7c0c0b84fa184e8ebf072a45, type: 3}
@@ -3353,8 +3357,7 @@ MonoBehaviour:
   - {fileID: 221368102841463660, guid: 1b95b35d60cb41e48805371d1e631964, type: 3}
   - {fileID: 8930651628035647428, guid: 436c2b000cf3e9347b03c6802a5cae19, type: 3}
   - {fileID: 6979398637988608221, guid: ad358ae6eab53994e98444863fa07df1, type: 3}
-  - {fileID: 4374894028693739761, guid: 11608598d426064449d02992f3220764, type: 3}
-  - {fileID: 4374894028693739761, guid: 1d752f3d5196a024c907ec7445dd1078, type: 3}
+  - {fileID: 2412933610709452055, guid: 4ed34051ff84c4c42a0ef2bafd151a28, type: 3}
   shelves:
   - {fileID: 1029752988}
   - {fileID: 672884382}
