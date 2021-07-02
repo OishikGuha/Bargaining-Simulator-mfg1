@@ -35,8 +35,7 @@ public class ShelfScript : MonoBehaviour
             GameObject chosenItem = itemsToChooseFrom[Random.Range(0, itemsToChooseFrom.Count)];
             items.Add(new Item(i.ToString(), chosenItem.GetComponent<ItemObject>().item.cost, chosenItem));
             
-            GameObject instObj = Instantiate(items[i].itemObj, itemSpawnPoints[i].transform.position, Quaternion.identity, transform);
-            instObj.transform.localScale = Vector3.one * 0.004444444f;
+            GameObject instObj = Instantiate(items[i].itemObj, itemSpawnPoints[i].transform.position, chosenItem.transform.rotation, transform);
         }
     }
 }

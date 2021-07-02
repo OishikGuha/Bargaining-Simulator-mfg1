@@ -9,6 +9,7 @@ public class ItemObject : MonoBehaviour
     public float animationSpeed;
 
     public Item item;
+    public bool usingColor;
     public Color itemColor;
 
     Transform player;
@@ -24,6 +25,8 @@ public class ItemObject : MonoBehaviour
         // changes the player's color
         meshRenderer = GetComponent<MeshRenderer>();
         
+        if(usingColor)
+        meshRenderer.material.color = itemColor;
         // Debug.Log(renderer.material.color);
     }
 
@@ -31,7 +34,6 @@ public class ItemObject : MonoBehaviour
     void Update()
     {   
 
-        meshRenderer.material.color = itemColor;
         if(Vector3.Distance(player.position, transform.position) < minDistance)
         {
             gotPlayer = true;
