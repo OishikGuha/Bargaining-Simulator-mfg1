@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4374894028693739754}
   - component: {fileID: -1630314704212742409}
   m_Layer: 0
-  m_Name: Item
+  m_Name: Item 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -110,4 +110,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minDistance: 5
   animationSpeed: 12
-  cost: 1
+  item:
+    name: 
+    cost: 0
+    itemObj: {fileID: 0}
+  color: {r: 0.8679245, g: 0.38074043, b: 0.6472995, a: 1}
