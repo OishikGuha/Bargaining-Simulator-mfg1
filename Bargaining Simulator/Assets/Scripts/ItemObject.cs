@@ -9,12 +9,12 @@ public class ItemObject : MonoBehaviour
     public float animationSpeed;
 
     public Item item;
-    public Color color;
+    public Color itemColor;
 
     Transform player;
     bool gotPlayer;
 
-    MeshRenderer renderer;
+    MeshRenderer meshRenderer;
 
     // Start is called before the first frame update
     void Start()
@@ -22,16 +22,16 @@ public class ItemObject : MonoBehaviour
         player = FindObjectOfType<Player>().gameObject.transform;
 
         // changes the player's color
-        renderer = GetComponent<MeshRenderer>();
+        meshRenderer = GetComponent<MeshRenderer>();
         
-        Debug.Log(renderer.material.color);
+        // Debug.Log(renderer.material.color);
     }
 
     // Update is called once per frame
     void Update()
     {   
 
-        renderer.material.color = color;
+        meshRenderer.material.color = itemColor;
         if(Vector3.Distance(player.position, transform.position) < minDistance)
         {
             gotPlayer = true;

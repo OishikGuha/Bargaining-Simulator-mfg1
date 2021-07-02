@@ -114,4 +114,4 @@ MonoBehaviour:
     name: 
     cost: 0
     itemObj: {fileID: 0}
-  color: {r: 0.55998576, g: 0.9811321, b: 0.92693186, a: 1}
+  itemColor: {r: 0.3589927, g: 0.18405126, b: 0.8301887, a: 1}

@@ -101,8 +101,8 @@ GameObject:
   - component: {fileID: 2336704514235194926}
   - component: {fileID: 1712071499974005131}
   - component: {fileID: 3469610907059201345}
-  - component: {fileID: -8940758708409039295}
   - component: {fileID: 846110074892670925}
+  - component: {fileID: 6542387355446793213}
   m_Layer: 0
   m_Name: Shelf
   m_TagString: Untagged
@@ -187,7 +187,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &-8940758708409039295
+--- !u!65 &846110074892670925
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3109301014662612116}
+  m_Material: {fileID: 13400000, guid: abbb688eb715aed489b947280007cbc1, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.020978762, y: 0.039248794, z: 0.047954828}
+  m_Center: {x: -0.000489382, y: 0, z: 0.02304037}
+--- !u!114 &6542387355446793213
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -199,8 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61e1e3e98d8d6f142971d9bb617bff17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemsToChooseFrom:
-  - {fileID: 4374894028693739761, guid: 1d752f3d5196a024c907ec7445dd1078, type: 3}
+  itemsToChooseFrom: []
   itemSpawnPoints:
   - {fileID: 3048282251107632675}
   - {fileID: 479668749672534503}
@@ -216,19 +228,6 @@ MonoBehaviour:
   - {fileID: 1358619444342486752}
   items: []
   manuallyGenerate: 0
---- !u!65 &846110074892670925
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3109301014662612116}
-  m_Material: {fileID: 13400000, guid: abbb688eb715aed489b947280007cbc1, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.020978762, y: 0.039248794, z: 0.047954828}
-  m_Center: {x: -0.000489382, y: 0, z: 0.02304037}
 --- !u!1 &4294653920911790031
 GameObject:
   m_ObjectHideFlags: 0
