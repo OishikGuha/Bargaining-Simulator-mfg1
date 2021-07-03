@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
     [Space]
     public BargainManager bargainManager;
 
+    ShopKeeper shopkeeper;
+
     Rigidbody rb;
     float horizontal;
     float vertical;
@@ -25,12 +27,13 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        bargainManager.gameObject.SetActive(false);
+        shopkeeper = FindObjectOfType<ShopKeeper>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        bargainManager.originalCost = CalculateItemsCost();
 
         // horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
@@ -56,6 +59,14 @@ public class Player : MonoBehaviour
             isMoving = false;
         }
 
+        // sets the original cost if the bargain window is closed or else.
+        if(!bargainManager.isActiveAndEnabled)
+        {
+            bargainManager.originalCost = CalculateItemsCost();
+        }
+        else{}
+        
+        
         // if the player is pressing the mouse button then it is allowing itself to take the items
         if (Input.GetMouseButton(0))
             isTakingItems = true;
@@ -112,5 +123,10 @@ public class Player : MonoBehaviour
             cost += item.cost;
         }
         return cost;
+    }
+
+    public void ToggleBargain(bool toggle)
+    {
+        bargainManager.gameObject.SetActive(toggle);
     }
 }
