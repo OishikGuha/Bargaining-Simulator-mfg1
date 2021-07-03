@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     [Tooltip("must be particles")]public ParticleSystem playerTrail;
     public bool isMoving;
     public float currentSpeed;
+    public bool isTakingItems;
 
     Rigidbody rb;
     float horizontal;
@@ -50,6 +51,12 @@ public class Player : MonoBehaviour
         {
             isMoving = false;
         }
+
+        // if the player is pressing the mouse button then it is allowing itself to take the items
+        if (Input.GetMouseButton(0))
+            isTakingItems = true;
+        else
+            isTakingItems = false;
 
         UseTrail();
     }
