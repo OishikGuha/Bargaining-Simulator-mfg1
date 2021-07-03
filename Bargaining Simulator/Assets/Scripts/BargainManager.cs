@@ -31,4 +31,10 @@ public class BargainManager : MonoBehaviour
     {
         playersCost -= cost;
     }
+
+    public void Confirm()
+    {
+        Debug.Log(originalCost);
+        originalCost = playersCost;
+    }
 }
