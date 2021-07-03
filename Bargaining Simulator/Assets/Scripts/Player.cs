@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
     public bool isMoving;
     public float currentSpeed;
     public bool isTakingItems;
+    [Space]
+    public BargainManager bargainManager;
 
     Rigidbody rb;
     float horizontal;
@@ -28,6 +30,8 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        bargainManager.originalCost = CalculateItemsCost();
+
         // horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
         
@@ -98,5 +102,15 @@ public class Player : MonoBehaviour
         {
             playerTrail.Stop();
         }
+    }
+
+    public float CalculateItemsCost()
+    {
+        float cost = 0f;
+        foreach (var item in items)
+        {
+            cost += item.cost;
+        }
+        return cost;
     }
 }
