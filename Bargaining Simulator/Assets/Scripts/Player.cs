@@ -60,11 +60,11 @@ public class Player : MonoBehaviour
         }
 
         // sets the original cost if the bargain window is closed or else.
-        if(!bargainManager.isActiveAndEnabled)
+        if(bargainManager.isActiveAndEnabled)
         {
-            bargainManager.originalCost = CalculateItemsCost();
         }
-        else{}
+        else
+            bargainManager.originalCost = CalculateItemsCost();
         
         
         // if the player is pressing the mouse button then it is allowing itself to take the items

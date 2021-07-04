@@ -26,7 +26,7 @@ public class ShopKeeper : MonoBehaviour
             bargainAllowed = true;
         else
             bargainAllowed = false;
-        
+            
 
         if(Input.GetKeyDown(bargainKey) && bargainAllowed)
         {
