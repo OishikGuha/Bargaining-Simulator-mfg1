@@ -4535,6 +4535,42 @@ PrefabInstance:
       propertyPath: ShapeModule.radiusThickness
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2521393122106101227, guid: 85320410bc52b8d4682be53444b62708, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 514.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521393122106101227, guid: 85320410bc52b8d4682be53444b62708, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 138.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521393122106101227, guid: 85320410bc52b8d4682be53444b62708, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -175.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2987455703926031327, guid: 85320410bc52b8d4682be53444b62708, type: 3}
+      propertyPath: m_Text
+      value: CONFIRM
+      objectReference: {fileID: 0}
+    - target: {fileID: 2987455703926031327, guid: 85320410bc52b8d4682be53444b62708, type: 3}
+      propertyPath: m_Color.b
+      value: 0.4764151
+      objectReference: {fileID: 0}
+    - target: {fileID: 2987455703926031327, guid: 85320410bc52b8d4682be53444b62708, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2987455703926031327, guid: 85320410bc52b8d4682be53444b62708, type: 3}
+      propertyPath: m_Color.r
+      value: 0.6461784
+      objectReference: {fileID: 0}
+    - target: {fileID: 2987455703926031327, guid: 85320410bc52b8d4682be53444b62708, type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 73
+      objectReference: {fileID: 0}
+    - target: {fileID: 2987455703926031327, guid: 85320410bc52b8d4682be53444b62708, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 67
+      objectReference: {fileID: 0}
     - target: {fileID: 5285558666314934206, guid: 85320410bc52b8d4682be53444b62708, type: 3}
       propertyPath: m_Name
       value: Scold
@@ -4543,6 +4579,18 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 963194227}
+    - target: {fileID: 7552471850293628357, guid: 85320410bc52b8d4682be53444b62708, type: 3}
+      propertyPath: m_Color.b
+      value: 0.40650588
+      objectReference: {fileID: 0}
+    - target: {fileID: 7552471850293628357, guid: 85320410bc52b8d4682be53444b62708, type: 3}
+      propertyPath: m_Color.g
+      value: 0.990566
+      objectReference: {fileID: 0}
+    - target: {fileID: 7552471850293628357, guid: 85320410bc52b8d4682be53444b62708, type: 3}
+      propertyPath: m_Color.r
+      value: 0.48994195
+      objectReference: {fileID: 0}
     - target: {fileID: 8973464605480759874, guid: 85320410bc52b8d4682be53444b62708, type: 3}
       propertyPath: rotationSenstivity
       value: 5

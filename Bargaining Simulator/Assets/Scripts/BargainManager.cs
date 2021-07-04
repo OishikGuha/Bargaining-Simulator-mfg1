@@ -41,8 +41,11 @@ public class BargainManager : MonoBehaviour
 
     public void ReduceCost(float pCost)
     {
+
+
         if(canReduceCost)
         {
+            numberOfActions++;
             cost = pCost;
             originalCost -= cost;
             canReduceCost = false;
