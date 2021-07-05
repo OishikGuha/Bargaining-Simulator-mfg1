@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BargainManager : MonoBehaviour
 {
@@ -8,6 +9,9 @@ public class BargainManager : MonoBehaviour
     public float originalCost;
     // public float playersCost;
     public int numberOfActions;
+    public int minNumberOfActionsforTheActionHelpThisVariableNameIsTooBigAAAAA;
+    public GameObject UI;
+    public ShopKeeper shopKeeper;
     [Header("Shopkeeper Settings")]
     public float shopKeeperDelay;
     public int minRandomCost;
@@ -41,14 +45,16 @@ public class BargainManager : MonoBehaviour
 
     public void ReduceCost(float pCost)
     {
-
-
         if(canReduceCost)
         {
             numberOfActions++;
             cost = pCost;
             originalCost -= cost;
             canReduceCost = false;
+
+            // this one sets the score
+            GameManager.scoreBargain = prevOriginalCost - originalCost;
+            GameManager.itemsAquired = Player._items.Count;
         }
     }
 
