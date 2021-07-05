@@ -54,22 +54,22 @@ public class BargainManager : MonoBehaviour
 
             // this one sets the score
             GameManager.scoreBargain = prevOriginalCost - originalCost;
-            GameManager.itemsAquired = Player._items.Count;
         }
     }
 
     public IEnumerator AddShopKeeperCost()
     {
-
-        float costDistance = prevOriginalCost - originalCost;
-        if(costDistance > 0)
+        for (;;)
         {
-            float randomCost = costDistance/2;
-            originalCost += randomCost;
-        }
+            float costDistance = prevOriginalCost - originalCost;
+            if(costDistance > 0)
+            {
+                float randomCost = costDistance/2;
+                originalCost += randomCost;
+            }
 
-        yield return new WaitForSeconds(shopKeeperDelay);
-        StartCoroutine("AddShopKeeperCost");
+            yield return new WaitForSeconds(shopKeeperDelay);
+        }
     }
 
     public IEnumerator ReduceCostCooldown(float delayExtra)

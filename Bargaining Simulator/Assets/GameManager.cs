@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
  
     
-    public static int itemsAquired;
+    public static int itemsAcquired;
     public static float scoreBargain;
     public static float highScoreBargain;
 

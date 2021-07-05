@@ -36,8 +36,6 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _items = items;
-
         // horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
         
@@ -92,6 +90,7 @@ public class Player : MonoBehaviour
     public void Equip(GameObject item)
     {
         items.Add(item.GetComponent<ItemObject>().item);
+        GameManager.itemsAcquired = items.Count;
         
         // Put in cart logic
     }
