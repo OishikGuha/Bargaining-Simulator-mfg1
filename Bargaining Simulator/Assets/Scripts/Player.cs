@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
 
     public float speed = 10f;
     public List<Item> items;
+    public static List<Item> _items;
     public KeyCode jumpKey;
     public float jumpForce;
     [Space]
@@ -34,6 +36,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        _items = items;
 
         // horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
@@ -61,17 +64,20 @@ public class Player : MonoBehaviour
 
         // sets the original cost if the bargain window is closed or else.
         if(!bargainManager.isActiveAndEnabled)
-        {
             bargainManager.originalCost = CalculateItemsCost();
-        }
-        else{}
-        
+
         
         // if the player is pressing the mouse button then it is allowing itself to take the items
         if (Input.GetMouseButton(0))
             isTakingItems = true;
         else
             isTakingItems = false;
+
+        // if the bargain window is on, the player will automatically not be taking the items
+        if(bargainManager.isActiveAndEnabled)
+        {
+            isTakingItems = false;
+        }
 
         UseTrail();
     }

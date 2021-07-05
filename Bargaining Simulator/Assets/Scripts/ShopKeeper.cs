@@ -8,8 +8,8 @@ public class ShopKeeper : MonoBehaviour
     public KeyCode bargainKey;
     public float minDistance = 5f;
 
-    bool bargainIsOn;
-    bool bargainAllowed;
+    public bool bargainIsOn;
+    public bool bargainAllowed;
 
     Player player;
     // Start is called before the first frame update
@@ -26,16 +26,18 @@ public class ShopKeeper : MonoBehaviour
             bargainAllowed = true;
         else
             bargainAllowed = false;
-        
+            
 
         if(Input.GetKeyDown(bargainKey) && bargainAllowed)
         {
             bargainIsOn = !bargainIsOn; 
-            player.ToggleBargain(bargainIsOn);
         }        
-        else if(bargainAllowed == false)
-        {
-            player.ToggleBargain(false);
-        }
+
+        player.ToggleBargain(bargainIsOn);
+    }
+
+    public void Confirm()
+    {    
+        bargainIsOn = false;
     }
 }

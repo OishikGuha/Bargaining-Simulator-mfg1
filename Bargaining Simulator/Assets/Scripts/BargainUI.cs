@@ -20,7 +20,7 @@ public class BargainUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        yourCost.text = bargainManager.playersCost.ToString();
+        // yourCost.text = bargainManager.playersCost.ToString();
         originalCost.text = bargainManager.originalCost.ToString();;
     }
 }
