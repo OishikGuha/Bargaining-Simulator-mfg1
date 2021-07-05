@@ -239,7 +239,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7552471850293628357}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3134119311422982697}
+        m_TargetAssemblyTypeName: BargainManager, Assembly-CSharp
+        m_MethodName: Confirm
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1645001890183375510
 GameObject:
   m_ObjectHideFlags: 0
@@ -1405,6 +1417,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   originalCost: 0
   numberOfActions: 0
+  minNumberOfActionsforTheActionHelpThisVariableNameIsTooBigAAAAA: 0
+  UI: {fileID: 0}
   shopKeeperDelay: 1
   minRandomCost: 1
   maxRandomCost: 1
