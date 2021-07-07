@@ -31,9 +31,10 @@ public class ShopKeeper : MonoBehaviour
         if(Input.GetKeyDown(bargainKey) && bargainAllowed)
         {
             bargainIsOn = !bargainIsOn; 
+            player.ToggleBargain(bargainIsOn);
         }        
 
-        player.ToggleBargain(bargainIsOn);
+        if(!bargainAllowed) bargainIsOn = false;
     }
 
     public void Confirm()

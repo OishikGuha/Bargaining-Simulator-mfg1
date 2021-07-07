@@ -29,6 +29,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        bargainManager = FindObjectOfType<BargainManager>();
         bargainManager.gameObject.SetActive(false);
         shopkeeper = FindObjectOfType<ShopKeeper>();
     }

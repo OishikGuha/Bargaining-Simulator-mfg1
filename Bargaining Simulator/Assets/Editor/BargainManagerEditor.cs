@@ -6,21 +6,21 @@ using UnityEditor;
 [CustomEditor(typeof(BargainManager))]
 public class BargainManagerEditor : Editor {
     
-    public override void OnInspectorGUI() {
-        base.OnInspectorGUI();
+    // public override void OnInspectorGUI() {
+    //     base.OnInspectorGUI();
 
-        BargainManager manager = (BargainManager)target;
+    //     BargainManager manager = (BargainManager)target;
 
-        EditorGUILayout.BeginHorizontal();        
-        if(GUILayout.Button("Reduce Cost!"))
-        {
-            manager.ReduceCost(1);
-        }
+    //     EditorGUILayout.BeginHorizontal();        
+    //     if(GUILayout.Button("Reduce Cost!"))
+    //     {
+    //         manager.ReduceCost(1);
+    //     }
 
-        if (GUILayout.Button("Add Cost"))
-        {
-            manager.ReduceCost(-1);
-        }
-        EditorGUILayout.EndHorizontal();
-    }
+    //     if (GUILayout.Button("Add Cost"))
+    //     {
+    //         manager.ReduceCost(-1);
+    //     }
+    //     EditorGUILayout.EndHorizontal();
+    // }
 }
