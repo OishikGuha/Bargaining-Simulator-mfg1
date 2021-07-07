@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49e119824ce28d24e8afe4c8320a83d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDistance: 5
+  minDistance: 4
   animationSpeed: 12
   item:
     name: Banana
