@@ -80,6 +80,9 @@ public class Player : MonoBehaviour
             isTakingItems = false;
         }
 
+        if(shopkeeper.bargainIsOn) isMoving = false; else isMoving = false;
+        
+
         UseTrail();
     }
 

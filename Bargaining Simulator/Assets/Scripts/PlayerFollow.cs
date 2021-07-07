@@ -11,10 +11,13 @@ public class PlayerFollow : MonoBehaviour
     public float bargainMinDistance;
     public float playerMinDistance;
     public float speed;
+    public float speedDampening;
 
     Transform player;
     ShopKeeper shopKeeper;
     bool hasSwitched;
+
+    float speedMultiplier;
 
     // Start is called before the first frame update
     void Start()
@@ -23,10 +26,16 @@ public class PlayerFollow : MonoBehaviour
         player = FindObjectOfType<Player>().transform;
     }
 
+    void Update()
+    {
+        speedMultiplier = Vector3.Distance(player.position, new Vector3(player.position.x, player.position.y, 0f)) / speedDampening;
+    }
+
     // Update is called once per frame
     void LateUpdate()
     {
         isBargaining = shopKeeper.bargainIsOn;
+        
         if(!isBargaining)
         {
             PlayerPointSwitch();
@@ -49,8 +58,8 @@ public class PlayerFollow : MonoBehaviour
     public void PlayerPointSwitch()
     {
         
-        transform.position = Vector3.Lerp(transform.position, player.position - playerOffset, Time.deltaTime * speed);
-        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(60.2f, 0f, 0f), Time.deltaTime * speed);
+        transform.position = Vector3.Lerp(transform.position, player.position - playerOffset, Time.deltaTime * speed * speedMultiplier);
+        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(60.2f,0f, 0f), Time.deltaTime * speed);
         
     }
 }
