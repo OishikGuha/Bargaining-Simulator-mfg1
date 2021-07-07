@@ -8,7 +8,8 @@ public class PlayerFollow : MonoBehaviour
     public Vector3 playerOffset;
     public bool isBargaining;
     public Transform bargainPoint;
-    public float minDistance;
+    public float bargainMinDistance;
+    public float playerMinDistance;
     public float speed;
 
     Transform player;
@@ -28,8 +29,7 @@ public class PlayerFollow : MonoBehaviour
         isBargaining = shopKeeper.bargainIsOn;
         if(!isBargaining)
         {
-            transform.position = new Vector3(player.position.x, 0f, player.position.z) - playerOffset;
-            transform.rotation = Quaternion.Euler(60.2f, 0f, 0f);
+            PlayerPointSwitch();
         }
         else
         {
@@ -44,5 +44,13 @@ public class PlayerFollow : MonoBehaviour
             transform.position = Vector3.Lerp(transform.position, bargainPoint.position, Time.deltaTime * speed);
             transform.rotation = Quaternion.Lerp(transform.rotation, bargainPoint.rotation, Time.deltaTime * speed);
         // }
+    }
+
+    public void PlayerPointSwitch()
+    {
+        
+        transform.position = Vector3.Lerp(transform.position, player.position - playerOffset, Time.deltaTime * speed);
+        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(60.2f, 0f, 0f), Time.deltaTime * speed);
+        
     }
 }
