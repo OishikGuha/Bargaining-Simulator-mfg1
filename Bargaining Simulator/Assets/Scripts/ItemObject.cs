@@ -42,6 +42,10 @@ public class ItemObject : MonoBehaviour
         {
             gotPlayer = true;
         }
+        else
+        {
+            gotPlayer = false;
+        }
 
         // if the item has gotten its player and if the player is allowing the aquiring of items then the item will start following the player until it equips  
         if(gotPlayer && playerComponent.isTakingItems)
