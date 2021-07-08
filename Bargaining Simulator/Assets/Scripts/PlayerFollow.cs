@@ -6,6 +6,7 @@ public class PlayerFollow : MonoBehaviour
 {
 
     public Vector3 playerOffset;
+    public Vector3 bargainOffset;
     public bool isBargaining;
     public Transform bargainPoint;
     public float bargainMinDistance;
@@ -48,11 +49,11 @@ public class PlayerFollow : MonoBehaviour
 
     public void BargainPointSwitch()
     {
-        // if(!(Vector3.Distance(transform.position, bargainPoint.position) < minDistance))
-        // {
-            transform.position = Vector3.Lerp(transform.position, bargainPoint.position, Time.deltaTime * speed);
+        if(!(Vector3.Distance(transform.position, bargainPoint.position - bargainOffset) < bargainMinDistance))
+        {
+            transform.position = Vector3.Lerp(transform.position, bargainPoint.position - bargainOffset, Time.deltaTime * speed);
             transform.rotation = Quaternion.Lerp(transform.rotation, bargainPoint.rotation, Time.deltaTime * speed);
-        // }
+        }
     }
 
     public void PlayerPointSwitch()

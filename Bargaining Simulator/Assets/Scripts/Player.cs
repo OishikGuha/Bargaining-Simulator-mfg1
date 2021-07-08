@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     [Space]
     [Tooltip("must be particles")]public ParticleSystem playerTrail;
     public bool isMoving;
+    public bool canMove;
     public float currentSpeed;
     public bool isTakingItems;
     [Space]
@@ -32,6 +33,8 @@ public class Player : MonoBehaviour
         bargainManager = FindObjectOfType<BargainManager>();
         bargainManager.gameObject.SetActive(false);
         shopkeeper = FindObjectOfType<ShopKeeper>();
+
+        canMove = true;
     }
 
     // Update is called once per frame
@@ -80,8 +83,11 @@ public class Player : MonoBehaviour
             isTakingItems = false;
         }
 
-        if(shopkeeper.bargainIsOn) isMoving = false; else isMoving = false;
-        
+        // print(shopkeeper.bargainIsOn);
+        if(shopkeeper.bargainIsOn) 
+            canMove = false; 
+        else 
+            canMove = true;
 
         UseTrail();
     }
@@ -89,8 +95,9 @@ public class Player : MonoBehaviour
     private void FixedUpdate() 
     {
         // rb.angularVelocity = Vector3.up * horizontal * rotationSenstivity;
-
-        rb.AddRelativeForce(new Vector3(horizontal, 0f, vertical) * speed);
+        if(canMove)
+            rb.AddRelativeForce(new Vector3(0f, 0f, vertical) * speed);
+        
     }
 
     public void Equip(GameObject item)

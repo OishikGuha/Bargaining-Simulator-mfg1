@@ -7,6 +7,7 @@ public class BargainManager : MonoBehaviour
 {
 
     public float originalCost;
+    public Vector3 mousePos;
 
     // Start is called before the first frame update
     void Start()
@@ -14,6 +15,10 @@ public class BargainManager : MonoBehaviour
         // playersCost = originalCost;
     }
 
+    void Update()
+    {
+
+    }
 }
 
 
