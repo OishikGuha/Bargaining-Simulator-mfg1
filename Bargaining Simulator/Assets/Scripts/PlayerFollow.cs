@@ -13,6 +13,7 @@ public class PlayerFollow : MonoBehaviour
     public float playerMinDistance;
     public float speed;
     public float speedDampening;
+    public Vector3 clampPoint;
 
     Transform player;
     ShopKeeper shopKeeper;
@@ -61,6 +62,12 @@ public class PlayerFollow : MonoBehaviour
         
         transform.position = Vector3.Lerp(transform.position, player.position - playerOffset, Time.deltaTime * speed * speedMultiplier);
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(60.2f,0f, 0f), Time.deltaTime * speed);
-        
+
+        if (transform.position.z < clampPoint.z)
+        {
+            Vector3 newPos = transform.position;
+            newPos.z = clampPoint.z;
+            transform.position = newPos;
+        }
     }
 }

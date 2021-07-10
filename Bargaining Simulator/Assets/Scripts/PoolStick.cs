@@ -10,7 +10,7 @@ public class PoolStick : MonoBehaviour
     public Vector2 maxBoundaries;
     public Vector2 minBoundaries;
 
-    public Vector2 axis;
+    public Camera camera;
     Rigidbody2D rb;
 
 
@@ -23,13 +23,13 @@ public class PoolStick : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        axis = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-
-        transform.position = new Vector2(Mathf.Clamp(transform.position.x, minBoundaries.x, maxBoundaries.x), Mathf.Clamp(transform.position.y, minBoundaries.y, maxBoundaries.y));
+        Vector3 mousePos = Input.mousePosition;
+        mousePos.z = camera.nearClipPlane;
+        Vector3 worldPosition = camera.ScreenToWorldPoint(mousePos);
+        rb.MovePosition(worldPosition);
     }
 
     void FixedUpdate()
     {
-        rb.velocity = axis * speed;
     }
 }
