@@ -141,9 +141,4 @@ public class Player : MonoBehaviour
         }
         return cost;
     }
-
-    public void ToggleBargain(bool toggle)
-    {
-        bargainManager.gameObject.SetActive(toggle);
-    }
 }
