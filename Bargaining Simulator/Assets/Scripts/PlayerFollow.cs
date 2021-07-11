@@ -15,8 +15,9 @@ public class PlayerFollow : MonoBehaviour
     public float speedDampening;
     public Vector3 clampPoint;
 
-    Transform player;
-    ShopKeeper shopKeeper;
+    private Transform player;
+    private ShopKeeper shopKeeper;
+    public BargainManager bargainManager; // idk why unity refuses to work properly, 3am
     bool hasSwitched;
 
     float speedMultiplier;
@@ -26,6 +27,7 @@ public class PlayerFollow : MonoBehaviour
     {
         shopKeeper = FindObjectOfType<ShopKeeper>();
         player = FindObjectOfType<Player>().transform;
+        //bargainManager = FindObjectOfType<BargainManager>(); // see note above
     }
 
     void Update()
@@ -55,6 +57,10 @@ public class PlayerFollow : MonoBehaviour
             transform.position = Vector3.Lerp(transform.position, bargainPoint.position - bargainOffset, Time.deltaTime * speed);
             transform.rotation = Quaternion.Lerp(transform.rotation, bargainPoint.rotation, Time.deltaTime * speed);
         }
+        else
+        {
+            bargainManager.gameObject.SetActive(true);
+        }
     }
 
     public void PlayerPointSwitch()
@@ -69,5 +75,7 @@ public class PlayerFollow : MonoBehaviour
             newPos.z = clampPoint.z;
             transform.position = newPos;
         }
+        
+        bargainManager.gameObject.SetActive(false);
     }
 }
