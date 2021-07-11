@@ -40,7 +40,11 @@ public class PoolStick : MonoBehaviour
             }
             else if (Input.GetMouseButton(0) && isPushing)
             {
-                Vector2 shootDirectionClamped = Vector2.ClampMagnitude((Vector2) mousePosition - currentRigidbody.position, pushBackMaxLength);
+                Vector2 shootDirectionClamped = Vector2.ClampMagnitude((Vector2) mousePosition - currentRigidbody.position, pushBackMaxLength + pushBackMinLength);
+                if (shootDirectionClamped.magnitude < pushBackMinLength)
+                    shootDirectionClamped = Vector2.zero;
+                shootDirectionClamped = shootDirectionClamped.normalized * (shootDirectionClamped.magnitude - pushBackMinLength);
+                
                 
                 Vector2 distanceMultiplierVector = shootDirectionClamped;
                 if (distanceMultiplierVector.x > 0)
@@ -56,13 +60,16 @@ public class PoolStick : MonoBehaviour
                 
                 transform.position = shootDirection * (-1.25f + distanceMultiplier) + currentRigidbody.position;
                 Debug.Log(shootDirectionClamped);
-                Debug.Log(shootDirectionClamped.magnitude);
-                Debug.Log(distanceMultiplier);
-                Debug.Log(Mathf.Lerp(0f, 2f, 0.5f));
+                Debug.Log("shootdirection: " + shootDirectionClamped.magnitude);
+                Debug.Log("distancemultiplier" + distanceMultiplier);
             }
             else if (!Input.GetMouseButton(0) && isPushing)
             {
                 Vector2 shootDirectionClamped = Vector2.ClampMagnitude((Vector2) mousePosition - currentRigidbody.position, pushBackMaxLength);
+                if (shootDirectionClamped.magnitude < pushBackMinLength)
+                    shootDirectionClamped = Vector2.zero;
+                shootDirectionClamped = shootDirectionClamped.normalized * (shootDirectionClamped.magnitude - pushBackMinLength);
+                
                 currentRigidbody.AddForce(pushForce * shootDirectionClamped);
 
                 texture.enabled = false;
